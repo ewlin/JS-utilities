@@ -5,7 +5,7 @@ function arrayReduce (array, func, initialVal) {
     while (current_index < arr_len) {
         current_item = array[current_index]; 
         if (current_index == 0) {
-            current_value = initialVal ? cb.apply(array, [initialVal, current_item]) : cb.apply(array, [null, current_item])
+            current_value = initialVal ? cb.apply(array, [initialVal, current_item]) : cb.apply(array, [current_item, array[++current_index]]); 
         } else {
             current_value = cb.apply(array, [current_value, current_item]); 
         }
