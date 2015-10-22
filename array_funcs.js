@@ -13,11 +13,14 @@ function arrayFilter (array, predicate) {
     return filteredArray; 
 }
 
-function arrayReduce (array, func, initialVal) {
-    var cb = func, current_index = 0; 
+function arrayReduce (array, func, skipEmpty, initialVal) {
+    var cb = func, current_index = 0;  
     var current_item, current_value, arr_len; 
     
-    array = arrayFilter(array, function(item) { return !(item == undefined)}); 
+    if (skipEmpty) {
+        array = arrayFilter(array, function(item) { return !(item == undefined)}); 
+    }
+    
     arr_len = array.length; 
     
     while (current_index < arr_len) {
@@ -34,9 +37,9 @@ function arrayReduce (array, func, initialVal) {
 } 
 
 
-function arrayReduceRight (array, func, initialVal) {
+function arrayReduceRight (array, func, skipEmpty, initialVal) {
     var reversedArr = array.reverse(); 
-    return arrayReduce(reversedArr, func, initialVal); 
+    return arrayReduce(reversedArr, func, skipEmpty, initialVal); 
 }
 
 function arrayMap (array, iterFunc) {
