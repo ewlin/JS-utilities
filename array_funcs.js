@@ -13,12 +13,13 @@ function arrayFilter (array, predicate) {
     return filteredArray; 
 }
 
+
 function arrayReduce (array, func, skipEmpty, initialVal) {
     var cb = func, current_index = 0;  
     var current_item, current_value, arr_len; 
     
     if (skipEmpty) {
-        array = arrayFilter(array, function(item) { return !(item == undefined)}); 
+        array = arrayFilter(array, function(item) { return !(item == undefined) }); 
     }
     
     arr_len = array.length; 
@@ -42,6 +43,7 @@ function arrayReduceRight (array, func, skipEmpty, initialVal) {
     return arrayReduce(reversedArr, func, skipEmpty, initialVal); 
 }
 
+
 function arrayMap (array, iterFunc) {
     'use strict'; 
     var cb = iterFunc, arr_len = array.length, current_index = 0; 
@@ -55,7 +57,6 @@ function arrayMap (array, iterFunc) {
     return mappedArray; 
 }
         
-
                         
 function arrayRange (length, startVal = 0, step = 1) {
     var rangeArray = []; 
@@ -73,8 +74,7 @@ function arrayRange (length, startVal = 0, step = 1) {
     return rangeArray; 
 }
         
-    
-    
+
         
     
     
