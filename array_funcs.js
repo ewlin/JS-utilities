@@ -14,6 +14,21 @@ function arrayFilter (array, predicate) {
     return filteredArray; 
 }
 
+//returns a new array, reversing the order of the input array; non-mutating
+
+function arrayReverse (array) {
+    var arr_len = array.length, reversedArray = []; 
+    
+    var j = 0; 
+    
+    for (var i = arr_len-1; i > -1; i--) {
+        reversedArray[j] = array[i];  
+        j++; 
+    }
+    
+    return reversedArray; 
+                    
+}
 
 function arrayReduce (array, func, skipEmpty, initialVal) {
     var cb = func, current_index = 0;  
@@ -36,14 +51,13 @@ function arrayReduce (array, func, skipEmpty, initialVal) {
     }
     
     return current_value; 
-} 
+}
 
-
-//function arrayReduceRight (array, func, skipEmpty, initialVal) {
-//    var reversedArr = array.reverse(); 
-//    
-//    return arrayReduce(reversedArr, func, skipEmpty, initialVal); 
-//}
+function arrayReduceRight (array, func, skipEmpty, initialVal) {
+    var reversedArr = arrayReverse(array); 
+    
+    return arrayReduce(reversedArr, func, skipEmpty, initialVal); 
+}
 
 
 function arrayMap (array, iterFunc) {
@@ -76,12 +90,6 @@ function arrayRange (length, startVal = 0, step = 1) {
     
     return rangeArray; 
 }
-        
 
-        
-    
-    
-    
-    
-    
+
                         
