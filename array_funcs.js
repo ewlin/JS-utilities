@@ -56,3 +56,29 @@ function arrayMap (array, iterFunc) {
 }
         
 
+                        
+function arrayRange (length, startVal = 0, step = 1) {
+    var rangeArray = []; 
+    var currentVal = startVal; 
+    
+    if (!length) {
+        throw new Error('range length cannot be omitted!');
+    }
+    
+    for (let i=0; i < length; i++) {
+        rangeArray.push(currentVal); 
+        currentVal += step; 
+    }
+    
+    return rangeArray; 
+}
+        
+    
+    
+        
+    
+    
+    
+    
+    
+                        
