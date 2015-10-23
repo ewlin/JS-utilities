@@ -10,6 +10,7 @@ function arrayFilter (array, predicate) {
         }
         current_index++; 
     }
+    
     return filteredArray; 
 }
 
@@ -40,6 +41,7 @@ function arrayReduce (array, func, skipEmpty, initialVal) {
 
 function arrayReduceRight (array, func, skipEmpty, initialVal) {
     var reversedArr = array.reverse(); 
+    
     return arrayReduce(reversedArr, func, skipEmpty, initialVal); 
 }
 
@@ -54,6 +56,7 @@ function arrayMap (array, iterFunc) {
         mappedArray[current_index] = cb.call(array, current_item); 
         current_index++; 
     }
+    
     return mappedArray; 
 }
         
