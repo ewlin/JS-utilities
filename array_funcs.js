@@ -39,11 +39,11 @@ function arrayReduce (array, func, skipEmpty, initialVal) {
 } 
 
 
-function arrayReduceRight (array, func, skipEmpty, initialVal) {
-    var reversedArr = array.reverse(); 
-    
-    return arrayReduce(reversedArr, func, skipEmpty, initialVal); 
-}
+//function arrayReduceRight (array, func, skipEmpty, initialVal) {
+//    var reversedArr = array.reverse(); 
+//    
+//    return arrayReduce(reversedArr, func, skipEmpty, initialVal); 
+//}
 
 
 function arrayMap (array, iterFunc) {
