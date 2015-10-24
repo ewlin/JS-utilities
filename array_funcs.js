@@ -97,45 +97,6 @@ function arrayRange (length, startVal = 0, step = 1) {
 //TODO: arrayDelete --should I delete by index or by value? 
 
 
-//Todo: allow for value to be an array; spread values out
-function arrayInsert (array, value, index) {
-    var updatedArr = [], arr_len = array.length; 
-    
-    if (arguments.length < 3) {
-        index = arr_len; 
-        if (arguments.length < 2) {
-            throw new Error('must specify a value to insert into array'); 
-        }
-    }
-    
-    if (index > array.length) {
-        throw new Error('index value requested will create array with gaps'); 
-    }
-    
-    var valueIsArray = Array.isArray(value) ? true : false; 
-    
-    if (index == 0) {
-        updatedArr = valueIsArray ? [...value, ...array] : [value, ...array]; 
-    } else if (index == arr_len) {
-        updatedArr = valueIsArray ? [...array, ...value] : [...array, value]; 
-    } else {        
-        var slice1 = array.slice(0, index), slice2 = array.slice(index); 
-        updatedArr = valueIsArray ? [...slice1, ...value, ...slice2] : [...slice1, value, ...slice2]; 
-    } 
-    
-    //if (index == 0) {
-    //    updatedArr = [value, ...array]; 
-    //} else if (index == arr_len) {
-    //    updatedArr = [...array, value]; 
-    //} else {        
-    //    var slice1 = array.slice(0, index), slice2 = array.slice(index); 
-    //    updatedArr = [...slice1, value, ...slice2]; 
-    //} 
-    
-    return updatedArr; 
-        
-}
-
 //accepts 3 arguments; index is optional. If omitted, value will be concatenated to the end of source array, similar to Array.prototype.concat. Value can either be a single item, or in the form of an array. If an array is passed...
 
 function arrayInsert (array, value, index) {
