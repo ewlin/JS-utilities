@@ -14,14 +14,15 @@ function arrayFilter (array, predicate) {
     return filteredArray; 
 }
 
-//returns a new array, reversing the order of the input array; non-mutating
+//*
+//*returns a new array, reversing the order of the input array; non-mutating
 
 function arrayReverse (array) {
     var arr_len = array.length, reversedArray = []; 
     
     var j = 0; 
     
-    for (var i = arr_len-1; i > -1; i--) {
+    for (let i = arr_len-1; i > -1; i--) {
         reversedArray[j] = array[i];  
         j++; 
     }
@@ -89,6 +90,38 @@ function arrayRange (length, startVal = 0, step = 1) {
     }
     
     return rangeArray; 
+}
+
+
+//TODO: arrayDelete --should I delete by index or by value? 
+
+
+function arrayInsert (array, value, index) {
+    var updatedArr = [], arr_len = array.length; 
+    
+    if (arguments.length < 3) {
+        index = arr_len; 
+        if (arguments.length < 2) {
+            throw new Error('must specify a value to insert into array'); 
+        }
+    }
+    
+    if (index > array.length) {
+        throw new Error('index value requested will create array with gaps'); 
+    }
+    
+    
+    if (index == 0) {
+        updatedArr = [value, ...array]; 
+    } else if (index == arr_len) {
+        updatedArr = [...array, value]; 
+    } else {        
+        var slice1 = array.slice(0, index), slice2 = array.slice(index); 
+        updatedArr = [...slice1, value, ...slice2]; 
+    } 
+    
+    return updatedArr; 
+        
 }
 
 
