@@ -76,9 +76,9 @@ function arrayMap (array, iterFunc) {
 }
         
 
-//TODO: refactor to allow for stop value 
+//TODO: rewrite without using prototypes; maybe just intependent functions 
 function arrayRange (length, startVal = 0, step = 1) {
-    var rangeArray = []; 
+    this.rangeArray = []; 
     var currentVal = startVal; 
     
     if (!length) {
@@ -86,12 +86,20 @@ function arrayRange (length, startVal = 0, step = 1) {
     }
     
     for (let i=0; i < length; i++) {
-        rangeArray.push(currentVal); 
+        this.rangeArray.push(currentVal); 
         currentVal += step; 
     }
-    
-    return rangeArray; 
 }
+
+arrayRange.prototype.valueExists = function(value) {
+    var range = this.rangeArray, length = this.rangeArray.length; 
+    var step = range[1]-range[0], firstValue = range[0], lastValue = range[length-1]; 
+    return value >= firstValue 
+        && value <= lastValue 
+        && (value - firstValue)%step === 0; 
+}
+
+
 
 
 //TODO: arrayDelete --should I delete by index or by value? 
