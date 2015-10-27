@@ -25,6 +25,9 @@ function collValueCount (coll, fn) {
     
     coll.forEach(function(item) {
         var key = fn(item); 
+        if (!(typeof key === 'string')) {
+            throw new Error('callback must return a string'); 
+        }
         if (keyList.indexOf(key) == -1) {
             keyList.push(key); 
             countList.push(1); 
@@ -39,3 +42,4 @@ function collValueCount (coll, fn) {
     
     return keyCount; 
 }
+
