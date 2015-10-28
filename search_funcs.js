@@ -11,6 +11,9 @@
 //        #loop through evens array until element > 1/2(value) -- (value - oddVal)== onOdds? if true return true, else false  
 //[1,3,5,91] [70,90,100]
 
+
+//TODO: memoize sums and store in ledger?
+//for use in closured versions. 
 //I hate naming functions argh
 function arraySearchIntegerSum (arr, value) {
     var numArray = [], oddsArray = [], evensArray = [];
