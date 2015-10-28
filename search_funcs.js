@@ -35,11 +35,13 @@ function arraySearchIntegerSum (arr, value) {
         }
     });
     
-    oddsArray.sort(function(a,b) { return a-b }); 
-    evensArray.sort(function(a,b) { return a-b }); 
+    oddsArray.sort(ascending); 
+    evensArray.sort(ascending); 
     
     console.log(oddsArray), console.log(evensArray);
     
+
+    //refactor--write a general function 
     //odd number values
     if (value%2 == 1) {
         for (var i = 0; i < oddsArray.length; i++) {
@@ -48,7 +50,7 @@ function arraySearchIntegerSum (arr, value) {
             if (testVal > value) break; 
         }
         
-        return false; 
+        return 'no two values found that add up to ' + value; 
     //even number values
     } else {
         for (var i = 0; i < oddsArray.length; i++) {
@@ -67,9 +69,14 @@ function arraySearchIntegerSum (arr, value) {
             }); 
             if (testArray.indexOf(value-testVal) !== -1) return testVal + '\+' + (value-testVal) + '=' + value; 
         }
-        return false; 
-        
+        return 'no two values found that add up to ' + value; 
+
     }   
+    
+    function ascending (a, b) { 
+        return a-b; 
+    } 
+    
         
 }
                               
