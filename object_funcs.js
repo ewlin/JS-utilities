@@ -42,4 +42,3 @@ function collValueCount (coll, fn) {
     
     return keyCount; 
 }
-
