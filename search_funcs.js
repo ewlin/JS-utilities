@@ -85,10 +85,7 @@ function arraySearchIntegerSum (arr, value) {
     
     function ascending (a, b) { 
         return a-b; 
-    } 
-
-    
-        
+    }         
 }
                   
 
