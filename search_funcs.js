@@ -82,7 +82,6 @@ function arraySearchIntegerSum (arr, value) {
         return 'no two values found that add up to ' + value; 
 
     }   
-    
     function ascending (a, b) { 
         return a-b; 
     }         
