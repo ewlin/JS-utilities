@@ -5,15 +5,61 @@
 #count(values, 'title', 'john') //{key: 'title', value: 'john', count: 2}
 
 
-//break into two functions-- one to test is key/value exists in object 
 
-function valueCount (arr, key, value) {
+#
+//break into two functions-- one to test is key/value exists in object 
+# rewrite to include accessor function 
+
+//var libraries = [
+//    
+//    {location: 'brooklyn', name: 'hamilton', books: [{title: 'cloud atlas', author: 'david mitchell'}, {title: 'slade house', author: 'david mitchell'}]},
+//    {location: 'brooklyn', name: 'prospect park', books: [{title: 'cloud atlas', author: 'david mitchell'}, {title: 'the bone clocks', author: 'david mitchell'}]},
+//    {location: 'queens', name: 'queens', books: [{title: 'cloud atlas', author: 'david mitchell'}, {title: 'jacob de zoet', author: 'david mitchell'}]},
+//    {location: 'manhattan', name: 'wall street', books: [{title: 'black swan green', author: 'david mitchell'}, {title: 'slade house', author: 'david mitchell'}, {title: 'cloud atlas', author: 'david mitchell'}]}
+//    
+//    ]
+//
+//
+//valueCountAccessor(libraries, 'title', 'cloud atlas', function(lib) {
+//    return lib.books; 
+//}) 
+                   
+//
+/* needs work 
+function valueCountAccessor (arr, key, value, fn) {
+    var count = count || 0; 
+    arr.forEach(function(item) {
+        
+        var arrToSearch = fn ? fn.call(null,item) : item; 
+        
+        arrToSearch.forEach(function(ele) {
+            if (!!(ele[key] === value)) { 
+                count++; 
+            }
+        }); 
+    }); 
+    return {key: key, value: value, count: count}; 
+}
+*/
+         
+
+
+
+function valueCount1 (arr, key, value) {
     var count = count || 0; 
     arr.forEach(function(item) {
         if (!!(item[key] === value)) { 
             count++; 
         }
     }); 
+    return {key: key, value: value, count: count}; 
+}
+
+
+function valueCount2 (arr, key, value) {
+    var count = arr.filter(function(item) {
+        return item[key] === value; 
+    }).length; 
     return {key: key, value: value, count: count}; 
 }
                 
